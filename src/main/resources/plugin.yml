@@ -1,0 +1,10 @@
+name: JumpAndRun
+version: '${project.version}'
+main: me.moontimer.jumpandrun.JumpAndRun
+authors: [ MoonTimer ]
+description: JumpAndRun
+website: https://moontimer.me
+commands:
+  test:
+    aliases:
+      - jar
