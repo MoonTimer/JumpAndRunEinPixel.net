@@ -1,5 +1,6 @@
-package me.moontimer.jumpandrun;
+package me.moontimer.jumpandrun.manager;
 
+import me.moontimer.jumpandrun.JumpAndRun;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 

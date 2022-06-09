@@ -1,9 +1,10 @@
-package me.moontimer.jumpandrun;
+package me.moontimer.jumpandrun.utils;
+
+import me.moontimer.jumpandrun.manager.MySQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
 
 public class API {
 

@@ -1,21 +1,13 @@
 package me.moontimer.jumpandrun.listener;
 
-import com.sun.org.apache.bcel.internal.generic.I2F;
-import me.moontimer.jumpandrun.JumpAndRunManager;
+import me.moontimer.jumpandrun.manager.JumpAndRunManager;
 import me.moontimer.jumpandrun.utils.BlockUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class JumpAndRunListener implements Listener {

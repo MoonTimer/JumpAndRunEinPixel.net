@@ -1,7 +1,6 @@
 package me.moontimer.jumpandrun.commands;
 
-import me.moontimer.jumpandrun.JumpAndRun;
-import me.moontimer.jumpandrun.JumpAndRunManager;
+import me.moontimer.jumpandrun.manager.JumpAndRunManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -4,6 +4,7 @@ import lombok.Getter;
 import me.moontimer.jumpandrun.commands.TestCommand;
 import me.moontimer.jumpandrun.listener.JoinListener;
 import me.moontimer.jumpandrun.listener.JumpAndRunListener;
+import me.moontimer.jumpandrun.manager.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

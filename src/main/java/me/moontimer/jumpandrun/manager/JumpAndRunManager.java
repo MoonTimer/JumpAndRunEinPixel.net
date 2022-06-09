@@ -1,7 +1,7 @@
-package me.moontimer.jumpandrun;
+package me.moontimer.jumpandrun.manager;
 
+import me.moontimer.jumpandrun.utils.API;
 import me.moontimer.jumpandrun.utils.BlockUtil;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

@@ -1,6 +1,6 @@
 package me.moontimer.jumpandrun.listener;
 
-import me.moontimer.jumpandrun.API;
+import me.moontimer.jumpandrun.utils.API;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
