@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class JumpAndRunManager {
 
@@ -62,10 +63,17 @@ public class JumpAndRunManager {
             int timeElapsedMin = (int) Duration.between(start, finish).toMinutes();
             int timeElapsedSec = (int) (Duration.between(start, finish).getSeconds()%60);
 
-            int bestTimeMin = (int) API.getObject(player.getUniqueId().toString(), "UUID", "MIN");
-            int bestTimeSec = (int) API.getObject(player.getUniqueId().toString(), "UUID", "SECONDS");
+            AtomicInteger bestTimeMin = new AtomicInteger();
+            AtomicInteger bestTimeSec = new AtomicInteger();
 
-            if ((bestTimeMin >= timeElapsedMin && bestTimeSec > timeElapsedSec) || bestTimeMin == 0 && bestTimeSec == 0) {
+            API.getObject(player.getUniqueId().toString(), "UUID", "MIN", object -> {
+                bestTimeMin.set((int) object);
+            });
+            API.getObject(player.getUniqueId().toString(), "UUID", "SECONDS", object -> {
+                bestTimeSec.set((Integer) object);
+            });
+
+            if ((bestTimeMin.get() >= timeElapsedMin && bestTimeSec.get() > timeElapsedSec) || bestTimeMin.get() == 0 && bestTimeSec.get() == 0) {
                 API.setMin(player.getUniqueId().toString(), timeElapsedMin);
                 API.setSec(player.getUniqueId().toString(), timeElapsedSec);
             }
