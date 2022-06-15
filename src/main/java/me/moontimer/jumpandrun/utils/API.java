@@ -17,7 +17,7 @@ public class API {
 
     public static void playerExists(String uuid, Consumer<Boolean> callback) {
 
-        Bukkit.getScheduler().runTaskAsynchronously(JumpAndRun.getInstance(), () -> {
+        CompletableFuture.runAsync(() -> {
             ResultSet resultSet = MySQL.getResult("SELECT * FROM time WHERE UUID='" + uuid + "'");
             try {
                 if (resultSet.next())
@@ -48,7 +48,8 @@ public class API {
     }
 
     public static void getObject(String whereResult, String where, String select, Consumer<Object> callback) {
-        Bukkit.getScheduler().runTaskAsynchronously(JumpAndRun.getInstance(), () -> {
+
+        CompletableFuture.runAsync(() -> {
             ResultSet resultSet = MySQL.getResult("SELECT " + select + " FROM time WHERE " + where + "='" + whereResult + "'");
             try {
                 if (resultSet.next()) {
@@ -60,27 +61,20 @@ public class API {
             callback.accept("ERROR");
         });
 
-
     }
 
     public static void setMin(String uuid, int time) {
 
 
-        Bukkit.getScheduler().runTaskAsynchronously(JumpAndRun.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                MySQL.update("UPDATE time SET " + "MIN" + "='" + time + "' WHERE UUID='" + uuid + "'");
+        CompletableFuture.runAsync(() -> {
+            MySQL.update("UPDATE time SET " + "MIN" + "='" + time + "' WHERE UUID='" + uuid + "'");
 
-            }
         });
     }
 
     public static void setSec(String uuid, int time) {
-        Bukkit.getScheduler().runTaskAsynchronously(JumpAndRun.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                MySQL.update("UPDATE time SET " + "SECONDS" + "='" + time + "' WHERE UUID='" + uuid + "'");
-            }
+        CompletableFuture.runAsync(() -> {
+            MySQL.update("UPDATE time SET " + "SECONDS" + "='" + time + "' WHERE UUID='" + uuid + "'");
         });
     }
 }

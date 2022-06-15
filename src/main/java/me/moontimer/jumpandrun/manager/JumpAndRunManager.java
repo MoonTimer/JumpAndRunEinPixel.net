@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class JumpAndRunManager {
 
     public static HashMap<Player, Instant> timer = new HashMap<>();
-    private static List<JumpAndRunManager> jumpAndRunManagerList = new ArrayList<>();
+    private static final List<JumpAndRunManager> jumpAndRunManagerList = new ArrayList<>();
     private final Player player;
     private final ItemStack item;
     private Block currentBlock, nextBlock;
@@ -23,7 +23,7 @@ public class JumpAndRunManager {
     public JumpAndRunManager(Player player) {
         this.player = player;
         this.item = new ItemStack(Material.WOOL, 0);
-        this.getJumpAndRunManagerList().add(this);
+        getJumpAndRunManagerList().add(this);
     }
 
     public void start() {
@@ -110,8 +110,7 @@ public class JumpAndRunManager {
     }
 
     public void update() {
-        if (getJumpAndRunManagerList().contains(this))
-            getJumpAndRunManagerList().remove(this);
+        getJumpAndRunManagerList().remove(this);
         getJumpAndRunManagerList().add(this);
     }
 
